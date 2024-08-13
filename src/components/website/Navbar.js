@@ -8,7 +8,7 @@ function Navbar() {
   const isloggedIn = true;
 
   return (
-    <main className=" w-full px-4 py-3 bg-slate-600 text-white  flex items-center justify-between ">
+    <main className=" w-full px-4 py-3 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-20">
       <h2 className=" text-bold text-3xl ">Profile.fyi</h2>
 
       <div className=" relative w-1/3 overflow-hidden  hidden sm:block ">
