@@ -3,13 +3,19 @@ import { MdAccountCircle } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
 import { FaHeart, FaSearch } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
+import { useProducts } from "@/hooks/useProducts";
+import Cart from "./Cart";
+import Wishlist from "./Wishlist";
+import Link from "next/link";
 
 function Navbar() {
   const isloggedIn = true;
 
   return (
     <main className=" w-full px-4 py-3 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-30">
-      <h2 className=" text-bold text-3xl ">Profile.fyi</h2>
+      <Link href={"/"} className=" text-bold text-3xl ">
+        Profile.fyi
+      </Link>
 
       <div className=" relative w-1/3 overflow-hidden  hidden sm:block ">
         <input
@@ -28,8 +34,8 @@ function Navbar() {
       </div>
 
       <div className="  flex items-center gap-4 ">
-        <FaCartShopping size={24} className="cursor-pointer  " />
-        <FaHeart size={24} className="cursor-pointer  " />
+        <Cart />
+        <Wishlist />
         {isloggedIn ? (
           <MdAccountCircle size={24} className="cursor-pointer  " />
         ) : (

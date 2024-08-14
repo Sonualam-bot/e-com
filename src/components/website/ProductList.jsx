@@ -22,7 +22,7 @@ export function ProductsList() {
   }
 
   return (
-    <main className=" grid grid-cols-1 sm:grid-cols-3  lg:grid-cols-4 p-3 shadow-lg gap-y-3 gap-x-2  ">
+    <main className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-3 shadow-lg gap-y-3 gap-x-2  ">
       {items.data.products.map((product, index) => (
         <ProductCard key={index} product={product} />
       ))}
