@@ -7,7 +7,7 @@ export default async function ProductDetailPage({ params }) {
   const product = await getProduct(params.id);
 
   return (
-    <div className="container mx-auto px-4 pt-[75px] pb-8">
+    <div className="container mx-auto px-4 pt-[83px] pb-8">
       <div className="flex flex-col md:flex-row -mx-4">
         <div className="md:flex-1 px-4">
           <div className="h-[460px] rounded-lg bg-gray-300 mb-4">
