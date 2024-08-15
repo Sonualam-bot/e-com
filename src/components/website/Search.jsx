@@ -1,5 +1,6 @@
 "use client";
 
+import { formatPrice } from "@/utils/helpers";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
@@ -46,7 +47,7 @@ function Search({ products }) {
   };
 
   return (
-    <div className="relative w-full max-w-md mx-auto" ref={searchRef}>
+    <div className="relative w-full max-w-md mx-auto z-30 " ref={searchRef}>
       <form className="relative">
         <input
           type="text"
@@ -77,7 +78,7 @@ function Search({ products }) {
                 {product.brand} - {product.model}
               </p>
               <p className="text-sm font-bold text-blue-600">
-                ${product.price}
+                {formatPrice(product.price)}
               </p>
             </div>
           ))}

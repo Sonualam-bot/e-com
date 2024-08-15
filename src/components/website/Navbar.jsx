@@ -15,11 +15,12 @@ async function Navbar() {
   return (
     <main className=" w-full px-4 py-4 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-30">
       <Link href={"/"} className=" text-bold text-3xl ">
-        <span>P</span>
-        <span className="hidden sm:inline-block">rofile.fyi</span>
+        Profile.fyi
       </Link>
 
-      <Search products={products} />
+      <div className="w-1/2  hidden sm:block ">
+        <Search products={products} />
+      </div>
 
       <div className="  flex items-center gap-4 ">
         <Cart />

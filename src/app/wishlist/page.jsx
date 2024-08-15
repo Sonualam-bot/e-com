@@ -2,13 +2,10 @@
 
 import React from "react";
 import { useProducts } from "@/hooks/useProducts";
-import { formatPrice, truncateText } from "@/utils/helpers";
-import { MdDelete, MdAddShoppingCart } from "react-icons/md";
-import Image from "next/image";
 import ProductCard from "@/components/website/ProductCard";
 
 function UserWishlist() {
-  const { wishListItems, removeFromWishList, addItemToCart } = useProducts();
+  const { wishListItems } = useProducts();
 
   return (
     <main className="bg-slate-100 min-h-screen w-full py-16 px-4 md:py-24 md:px-6 lg:px-10">
