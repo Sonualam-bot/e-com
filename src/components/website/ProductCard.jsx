@@ -17,7 +17,7 @@ function ProductCard({ product }) {
     <main className="p-0 md:p-3 bg-violet-300 rounded-lg">
       <section className="flex flex-col items-start gap-2 bg-violet-200 p-3 rounded-lg relative h-full">
         <AddToWishListButton product={product} />
-        <div className="relative w-full h-64 bg-white rounded-md ">
+        <div className="relative w-full h-64 bg-white rounded-md overflow-hidden ">
           <Image
             src={product.image}
             layout="fill"
