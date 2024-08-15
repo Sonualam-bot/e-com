@@ -1,12 +1,10 @@
 import React from "react";
-import ProductList from "./ProductList";
+import ProductSection from "./ProductSection";
 
-function Homepage() {
+export default function Homepage({ products }) {
   return (
     <main className=" bg-slate-100 min-h-screen w-full pt-[8rem] px-1 md:px-10 ">
-      <ProductList />
+      <ProductSection products={products} />
     </main>
   );
 }
-
-export default Homepage;

@@ -51,7 +51,7 @@ function Search({ products }) {
       <form className="relative">
         <input
           type="text"
-          placeholder="Search products..."
+          placeholder="Search by title, price, brand, model..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onFocus={handleInputFocus}

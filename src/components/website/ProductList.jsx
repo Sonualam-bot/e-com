@@ -1,10 +1,7 @@
 import ProductCard from "./ProductCard";
 import CardLoader from "./CardLoader";
-import getProducts from "@/utils/api";
 
-export default async function ProductList() {
-  const products = await getProducts();
-
+export default function ProductList({ products }) {
   if (products?.length === 0) {
     return (
       <main className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 p-3 shadow-lg gap-y-3 gap-x-2">

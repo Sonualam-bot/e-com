@@ -1,10 +1,12 @@
 import Homepage from "@/components/website/Homepage";
+import getProducts from "@/utils/api";
 import React from "react";
 
-function Products() {
+async function Products() {
+  const products = await getProducts();
   return (
     <main className="flex min-h-screen flex-col w-full  ">
-      <Homepage />
+      <Homepage products={products} />
     </main>
   );
 }

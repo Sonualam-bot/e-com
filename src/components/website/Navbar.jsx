@@ -1,7 +1,6 @@
 //assets
 import { MdAccountCircle } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
-import { FaSearch } from "react-icons/fa";
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 import Link from "next/link";
