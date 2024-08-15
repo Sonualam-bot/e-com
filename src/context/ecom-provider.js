@@ -1,27 +1,11 @@
 "use client";
-import { createContext, useEffect, useState, useCallback } from "react";
+import { createContext, useState, useCallback } from "react";
 
 export const EcomContext = createContext({});
 
 export default function EcomProvider({ children }) {
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [wishListItems, setWishListItems] = useState([]);
-
-  const getProducts = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const res = await fetch(`/api/products`);
-      if (!res.ok) throw new Error("Failed to fetch products");
-      const data = await res.json();
-      setItems(data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
 
   const addItemToCart = useCallback((item) => {
     setCartItems((prevCartItems) => {
@@ -70,13 +54,7 @@ export default function EcomProvider({ children }) {
     );
   };
 
-  useEffect(() => {
-    getProducts();
-  }, [getProducts]);
-
   const value = {
-    items,
-    isLoading,
     cartItems,
     addItemToCart,
     removeItemFromCart,

@@ -11,8 +11,6 @@ export function useProducts() {
   }
 
   const {
-    items,
-    isLoading,
     addItemToCart,
     cartItems,
     removeItemFromCart,
@@ -22,8 +20,6 @@ export function useProducts() {
     updateItemQuantity,
   } = context;
   return {
-    items,
-    isLoading,
     addItemToCart,
     cartItems,
     removeItemFromCart,

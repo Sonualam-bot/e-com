@@ -12,7 +12,7 @@ function Navbar() {
   const isloggedIn = true;
 
   return (
-    <main className=" w-full px-4 py-3 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-30">
+    <main className=" w-full px-4 py-4 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-30">
       <Link href={"/"} className=" text-bold text-3xl ">
         Profile.fyi
       </Link>
