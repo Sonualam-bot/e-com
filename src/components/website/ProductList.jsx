@@ -1,20 +1,9 @@
 import ProductCard from "./ProductCard";
 import CardLoader from "./CardLoader";
-
-async function getProducts() {
-  try {
-    const res = await fetch("https://fakestoreapi.in/api/products");
-    const data = await res.json();
-    return data.products;
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
-}
+import getProducts from "@/utils/api";
 
 export default async function ProductList() {
   const products = await getProducts();
-
-  console.log(products);
 
   if (products?.length === 0) {
     return (
