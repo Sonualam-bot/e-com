@@ -71,7 +71,7 @@ function UserCart() {
   };
 
   return (
-    <main className="bg-slate-100 min-h-screen w-full py-16 px-4 md:py-24 md:px-6 lg:px-10">
+    <main className="bg-slate-100 min-h-screen w-full py-16 px-4 sm:py-28 md:px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">
           Your Cart

@@ -5,7 +5,7 @@ import getProducts from "@/utils/api";
 export default async function Homepage() {
   const products = await getProducts();
   return (
-    <main className=" bg-slate-100 min-h-screen w-full pt-[8rem] px-1 md:px-10 ">
+    <main className=" bg-slate-100 min-h-screen w-full pt-[6rem] px-1 md:px-10 ">
       <ProductSection products={products} />
     </main>
   );
