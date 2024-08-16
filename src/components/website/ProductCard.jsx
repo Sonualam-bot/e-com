@@ -2,8 +2,7 @@ import Image from "next/image";
 import React from "react";
 import AddToCartButton from "./AddToCartButton";
 import AddToWishListButton from "./AddToWishListButton";
-import { formatPrice, truncateText } from "@/utils/helpers";
-import Link from "next/link";
+import { formatPrice } from "@/utils/helpers";
 import ProductTitle from "./ProductTitle";
 
 function ProductCard({ product }) {
@@ -14,13 +13,14 @@ function ProductCard({ product }) {
 
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-      <div className="relative h-48">
+      <div className="relative h-80">
         <Image
           src={product.image}
           alt={product.title}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-300 ease-in-out hover:scale-105"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={true}
+          className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
         />
         <div className="absolute top-2 right-2">
           <AddToWishListButton product={product} />
@@ -31,7 +31,7 @@ function ProductCard({ product }) {
           </div>
         )}
       </div>
-      <div className="p-4 flex flex-col justify-between ">
+      <div className="p-4 pb-0 flex flex-col justify-between ">
         <ProductTitle id={product?.id} title={product?.title} />
         <div className="flex justify-between items-center mb-4">
           <div>
@@ -44,8 +44,8 @@ function ProductCard({ product }) {
               </span>
             )}
           </div>
+          <AddToCartButton product={product} />
         </div>
-        <AddToCartButton product={product} />
       </div>
     </div>
   );

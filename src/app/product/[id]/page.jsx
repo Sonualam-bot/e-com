@@ -14,14 +14,14 @@ export default async function ProductDetailPage({ params }) {
             <Image
               src={product.image}
               alt={product.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover  "
               width={500}
               height={500}
             />
           </div>
           <div className="flex -mx-2 mb-4">
             <div className="w-1/2 px-2">
-              <AddToCartButton product={product} />
+              <AddToCartButton product={product} singleProduct />
             </div>
             <div className="w-1/2 px-2 ">
               <AddToWishlistBtnForDetailsPage product={product} />

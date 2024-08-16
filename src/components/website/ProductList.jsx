@@ -4,7 +4,7 @@ import CardLoader from "./CardLoader";
 export default function ProductList({ products }) {
   if (products?.length === 0) {
     return (
-      <main className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 p-3 shadow-lg gap-y-3 gap-x-2">
+      <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-3 shadow-lg gap-y-5 gap-x-8">
         {[...Array(8)].map((_, index) => (
           <CardLoader key={index} />
         ))}
@@ -17,7 +17,7 @@ export default function ProductList({ products }) {
   }
 
   return (
-    <main className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-3 shadow-lg gap-y-4 gap-x-6 bg-slate-200 rounded-lg ">
+    <main className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-3 shadow-lg gap-y-5 gap-x-8 bg-slate-200 rounded-lg ">
       {products.map((product, index) => (
         <ProductCard key={index} product={product} />
       ))}

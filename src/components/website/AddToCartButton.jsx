@@ -5,7 +5,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import { MdAddShoppingCart, MdRemoveShoppingCart } from "react-icons/md";
 
-function AddToCartButton({ product }) {
+function AddToCartButton({ product, singleProduct }) {
   const { addItemToCart, cartItems, removeItemFromCart } = useProducts();
 
   const isInCart = cartItems.some((item) => item.id === product.id);
@@ -24,7 +24,7 @@ function AddToCartButton({ product }) {
     <button
       onClick={handleClick}
       className={`
-        w-full py-2 px-4 rounded-md 
+        ${singleProduct ? "w-full" : ""} py-2 px-2 rounded-md 
         font-semibold text-sm
         transition-all duration-300 ease-in-out
         flex items-center justify-center
@@ -40,13 +40,19 @@ function AddToCartButton({ product }) {
     >
       {isInCart ? (
         <>
-          <MdRemoveShoppingCart className="mr-2" size={20} />
-          Remove from Cart
+          <MdRemoveShoppingCart
+            className={`${singleProduct ? "mr-2" : ""}`}
+            size={20}
+          />
+          {singleProduct && "Remove from Cart"}
         </>
       ) : (
         <>
-          <MdAddShoppingCart className="mr-2" size={20} />
-          Add to Cart
+          <MdAddShoppingCart
+            className={`${singleProduct ? "mr-2" : ""}`}
+            size={20}
+          />
+          {singleProduct && "Add to Cart"}
         </>
       )}
     </button>
