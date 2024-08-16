@@ -12,6 +12,7 @@ function UserCart() {
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [appliedDiscount, setAppliedDiscount] = useState(null);
   const [couponInput, setCouponInput] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -69,6 +70,25 @@ function UserCart() {
     setSelectedCoupon(null);
     setCouponInput("");
   };
+
+  if (showModal) {
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="bg-white p-8 rounded-lg shadow-xl">
+          <h2 className="text-2xl font-bold mb-4">
+            Congratulations on your purchase!
+          </h2>
+          <p className="mb-4">Thank you for shopping with us.</p>
+          <button
+            onClick={() => setShowModal(false)}
+            className="bg-slate-500 text-white px-4 py-2 rounded hover:bg-slate-600"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main className="bg-slate-100 min-h-screen w-full py-16 px-4 sm:py-28 md:px-6 lg:px-10">
@@ -182,6 +202,7 @@ function UserCart() {
               applyDiscount={applyDiscount}
               discountAmount={discountAmount}
               total={total}
+              setShowModal={setShowModal}
             />
           </div>
         )}

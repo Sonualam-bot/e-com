@@ -1,5 +1,5 @@
 import { formatPrice } from "@/utils/helpers";
-import React from "react";
+import { displayRazorpay } from "@/utils/payment";
 
 function CartSummary({
   subtotal,
@@ -14,7 +14,12 @@ function CartSummary({
   applyDiscount,
   discountAmount,
   total,
+  setShowModal,
 }) {
+  const handlePayment = () => {
+    displayRazorpay(Math.round(total), setShowModal);
+  };
+
   return (
     <div className="w-full lg:w-1/3 mt-6 lg:mt-0">
       <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
@@ -98,6 +103,7 @@ function CartSummary({
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
           disabled={cartItems.length === 0}
+          onClick={handlePayment}
         >
           {cartItems.length > 0 ? "Proceed to Checkout" : "Cart is Empty"}
         </button>
