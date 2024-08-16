@@ -47,7 +47,7 @@ function Search({ products }) {
   };
 
   return (
-    <div className="relative w-full max-w-md mx-auto z-30 " ref={searchRef}>
+    <div className="relative w-full max-w-md mx-auto z-20 " ref={searchRef}>
       <form className="relative">
         <input
           type="text"
