@@ -7,7 +7,7 @@ export const truncateText = (text, maxLength) => {
 
 // to format price in Indian Rupees
 export const formatPrice = (priceInUsd) => {
-  const USD_TO_INR_RATE = 83;
+  const USD_TO_INR_RATE = 83.95;
   const priceInInr = priceInUsd * USD_TO_INR_RATE;
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
