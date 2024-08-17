@@ -56,6 +56,7 @@ export default function EcomProvider({ children }) {
 
   const value = {
     cartItems,
+    setCartItems,
     addItemToCart,
     removeItemFromCart,
     addToWishList,

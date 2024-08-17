@@ -1,15 +1,19 @@
 //assets
-import { MdAccountCircle } from "react-icons/md";
-import { IoMdLogOut } from "react-icons/io";
+
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 import Link from "next/link";
 import getProducts from "@/utils/api";
 import Search from "./Search";
 
+import { cookies } from "next/headers";
+import AuthIcon from "./AuthIcon";
+
 async function Navbar() {
   const products = await getProducts();
-  const isloggedIn = true;
+
+  const cookieStore = cookies();
+  const token = cookieStore.get("accessToken");
 
   return (
     <main className=" w-full px-4 py-4 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-30">
@@ -22,13 +26,10 @@ async function Navbar() {
       </div>
 
       <div className="  flex items-center gap-4 ">
+        <Link href={"/product"}>See All Products</Link>
         <Cart />
         <Wishlist />
-        {isloggedIn ? (
-          <MdAccountCircle size={24} className="cursor-pointer  " />
-        ) : (
-          <IoMdLogOut size={24} className="cursor-pointer  " />
-        )}
+        <AuthIcon token={token} />
       </div>
     </main>
   );

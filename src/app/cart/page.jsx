@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { useProducts } from "@/hooks/useProducts";
-import Image from "next/image";
-import { MdDelete } from "react-icons/md";
-import { discountCoupons, formatPrice, truncateText } from "@/utils/helpers";
+import { discountCoupons } from "@/utils/helpers";
 import toast from "react-hot-toast";
 import CartSummary from "@/components/website/CartSummary";
+import CartTable from "@/components/website/CartTable";
 
 function UserCart() {
-  const { cartItems, updateItemQuantity, removeItemFromCart } = useProducts();
+  const { cartItems, updateItemQuantity, removeItemFromCart, setCartItems } =
+    useProducts();
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [appliedDiscount, setAppliedDiscount] = useState(null);
   const [couponInput, setCouponInput] = useState("");
@@ -71,6 +71,11 @@ function UserCart() {
     setCouponInput("");
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setCartItems([]);
+  };
+
   if (showModal) {
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -80,7 +85,7 @@ function UserCart() {
           </h2>
           <p className="mb-4">Thank you for shopping with us.</p>
           <button
-            onClick={() => setShowModal(false)}
+            onClick={handleCloseModal}
             className="bg-slate-500 text-white px-4 py-2 rounded hover:bg-slate-600"
           >
             Close
@@ -112,78 +117,13 @@ function UserCart() {
                   <div>Total</div>
                   <div>Action</div>
                 </div>
-                {cartItems.map((item) => (
-                  <div
-                    key={item.id}
-                    className="border-b p-4 flex flex-col md:flex-row"
-                  >
-                    <div className="md:grid md:grid-cols-6 flex flex-col flex-wrap gap-4 w-full">
-                      <div className="col-span-2 flex items-center">
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          width={40}
-                          height={40}
-                          className="mr-4"
-                        />
-                        <span className="text-sm md:text-base hidden md:block ">
-                          {truncateText(item.title, 30)}
-                        </span>
-                        <span className="text-sm md:text-base block md:hidden ">
-                          {item.title}
-                        </span>
-                      </div>
-                      <div className="w-[80%] flex md:block items-start md:items-center justify-between gap-5 md:gap-0 m-auto ">
-                        <span className="md:hidden font-semibold">Price:</span>
-                        <span className="text-sm md:text-base ml-auto ">
-                          {formatPrice(item.price.toFixed(2))}
-                        </span>
-                      </div>
-                      <div className="w-[80%] m-auto flex items-start gap-5 md:gap-0 ">
-                        <span className="md:hidden font-semibold">
-                          Quantity:
-                        </span>
-                        <div className="flex items-center justify-between w-24 md:w-28 ml-auto ">
-                          <button
-                            onClick={() => handleQuantityChange(item, -1)}
-                            className="bg-gray-200 px-2 py-1 rounded-l text-sm"
-                            disabled={item.quantity === 1}
-                          >
-                            -
-                          </button>
-                          <span className="px-2 text-center w-8 md:w-10 text-sm">
-                            {item.quantity}
-                          </span>
-                          <button
-                            onClick={() => handleQuantityChange(item, 1)}
-                            className="bg-gray-200 px-2 py-1 rounded-r text-sm"
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                      <div className="w-[80%] flex md:block items-start md:items-center justify-between gap-5 md:gap-0 m-auto">
-                        <span className="md:hidden font-semibold">Total:</span>
-                        <span className="text-sm md:text-base">
-                          {formatPrice((item.price * item.quantity).toFixed(2))}
-                        </span>
-                      </div>
-                      <div className="hidden md:flex items-center justify-center">
-                        <MdDelete
-                          size={24}
-                          onClick={() => removeItemFromCart(item.id)}
-                          className="text-red-500 hover:text-red-700 cursor-pointer"
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-4 md:hidden flex justify-end">
-                      <MdDelete
-                        size={24}
-                        onClick={() => removeItemFromCart(item.id)}
-                        className="text-red-500 hover:text-red-700 cursor-pointer"
-                      />
-                    </div>
-                  </div>
+                {cartItems.map((item, index) => (
+                  <CartTable
+                    key={index}
+                    item={item}
+                    handleQuantityChange={handleQuantityChange}
+                    removeItemFromCart={removeItemFromCart}
+                  />
                 ))}
               </div>
             </div>
