@@ -26,7 +26,12 @@ async function Navbar() {
       </div>
 
       <div className="  flex items-center gap-4 ">
-        <Link href={"/product"}>See All Products</Link>
+        <Link
+          href={"/product"}
+          className="text-white hover:text-gray-300 transition-colors duration-200 font-semibold px-3 py-2 rounded-md bg-slate-700 hover:bg-slate-800"
+        >
+          See All Products
+        </Link>
         <Cart />
         <Wishlist />
         <AuthIcon token={token} />
