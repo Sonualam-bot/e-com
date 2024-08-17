@@ -13,6 +13,7 @@ export function useProducts() {
   const {
     addItemToCart,
     cartItems,
+    setCartItems,
     removeItemFromCart,
     wishListItems,
     addToWishList,
@@ -22,6 +23,7 @@ export function useProducts() {
   return {
     addItemToCart,
     cartItems,
+    setCartItems,
     removeItemFromCart,
     wishListItems,
     addToWishList,

@@ -16,7 +16,7 @@ export default async function Home() {
           <Link
             href={`/product/${product.id}`}
             key={product.id}
-            className={`relative overflow-hidden rounded-lg shadow-lg 
+            className={`relative overflow-hidden rounded-lg shadow-lg group 
                             ${index === 0 ? "col-span-2 row-span-2" : ""} 
                             ${index === 3 ? "col-span-2" : ""}`}
           >
@@ -26,7 +26,7 @@ export default async function Home() {
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority={true}
-              className="transition-transform duration-300 ease-in-out transform hover:scale-110 object-cover "
+              className="transition-transform duration-300 ease-in-out transform group-hover:scale-110 object-cover "
             />
             <div className="absolute inset-0 bg-slate-400 bg-opacity-50 opacity-0 hover:opacity-100 transition-all duration-300 flex items-end justify-center group">
               <h2 className="text-white text-center text-xl font-semibold p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
