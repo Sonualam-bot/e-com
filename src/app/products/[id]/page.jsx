@@ -76,15 +76,6 @@ export default async function ProductDetailPage({ params }) {
   );
 }
 
-export async function generateStaticParams() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products`);
-  const data = await res.json();
-
-  return data?.product?.map((product) => ({
-    id: product._id,
-  }));
-}
-
 async function getProduct(id) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`
