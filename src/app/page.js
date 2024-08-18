@@ -8,6 +8,26 @@ export default function Home() {
   const { products } = useProducts();
   const randomProducts = products?.sort(() => 0.5 - Math.random()).slice(0, 5);
 
+  if (products?.length === 0) {
+    return (
+      <main className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] mb-12">
+        {[...Array(5)].map((_, index) => (
+          <div
+            key={index}
+            className={`relative bg-slate-300 animate-pulse overflow-hidden rounded-lg shadow-lg group 
+                            ${index === 0 ? "col-span-2 row-span-2" : ""} 
+                            ${index === 3 ? "col-span-2" : ""}`}
+          >
+            <div className="transition-transform duration-300 ease-in-out transform group-hover:scale-110 object-cover bg-slate-300 animate-pulse "></div>
+            <div className="absolute inset-0 bg-slate-400 animate-pulse bg-opacity-50 opacity-0 hover:opacity-100 transition-all duration-300 flex items-end justify-center group">
+              <h2 className="text-white bg-slate-300 animate-pulse text-center text-xl font-semibold p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></h2>
+            </div>
+          </div>
+        ))}
+      </main>
+    );
+  }
+
   return (
     <main className="flex min-h-screen flex-col w-full pt-20 px-4 bg-slate-100">
       <h1 className="text-4xl font-bold mb-8"></h1>
