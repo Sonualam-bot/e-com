@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS E-commerce Platform
 
-## Getting Started
+## Description
 
-First, run the development server:
+This is a full-stack e-commerce platform built with Next.js. It offers a comprehensive shopping experience with features like product browsing, cart management, wishlist functionality, and secure checkout with payment integration.
+
+## Features
+
+- Product catalog browsing
+- Add products to cart
+- Remove products from cart
+- Adjust product quantity in cart
+- Add/remove products to/from wishlist
+- Detailed product view
+- Checkout process
+- Payment integration (test mode)
+- Backend API built with Node.js
+
+## Technologies Used
+
+- Frontend: Next.js
+- Backend: Node.js
+
+## Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/Sonualam-bot/e-com.git
+   ```
+
+2. Navigate to the project directory
+
+   ```bash
+   cd e-com
+   ```
+
+3. Install dependencies
+   ```bash
+   npm install
+   ```
+
+## Running the Application
+
+1. Start the development server
+2. Open your browser and visit `http://localhost:3000`
+
+## Environment Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+MONGODB_URI=**
+ACCESS_TOKEN_SECRET=**
+ACCESS_TOKEN_EXPIRY=**
+NEXT_PUBLIC_API_URL=http://localhost:3000
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API Routes
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+/api/products - for all products
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+/api/products/:id - for specific product detail
+```
 
-## Learn More
+```bash
+/api/manage-cart - for managing the add, remove, increment, decrement quantity from cart
+```
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+/api/manage-wishlist - for managing the add, remove from wishlist
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+/api/get-user - for getting the logged-in user
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+/api/sign-in - for signing in the user
+```
 
-## Deploy on Vercel
+```bash
+/api/sign-out - for signing out the user
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+/api/sign-up - for signing up the user
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Payment Integration
+
+This project includes payment integration in test mode. You can select phonepay and just add any dummy 124578552@ybl and proceed to payment
+
+## Contact
+
+sonualam1599@gmail.com
