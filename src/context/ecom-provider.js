@@ -11,6 +11,7 @@ export default function EcomProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [wishListItems, setWishListItems] = useState([]);
   const [products, setProducts] = useState([]);
+  const [loggedInuser, setLoggedInuser] = useState();
 
   const updateCart = useCallback(async (product, action) => {
     const updatedCart = await manageCart(product, action);
@@ -66,6 +67,7 @@ export default function EcomProvider({ children }) {
       const user = await getUserFromDb();
       setCartItems(user?.cart);
       setWishListItems(user?.wishlist);
+      setLoggedInuser(user);
     }
     handleGetUserData();
   }, []);
@@ -90,6 +92,7 @@ export default function EcomProvider({ children }) {
     removeFromWishlist,
     wishListItems,
     products,
+    loggedInuser,
   };
 
   return <EcomContext.Provider value={value}>{children}</EcomContext.Provider>;

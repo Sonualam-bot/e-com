@@ -8,6 +8,7 @@ import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOffSharp } from "react-icons/io5";
 import userLogin from "@/utils/loginapi";
 import { useProducts } from "@/hooks/useProducts";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -29,6 +30,16 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await userLogin(formData, router);
+  };
+
+  const handleLoginInAsGuest = async (e) => {
+    await userLogin(
+      {
+        email: "max@gmail.com",
+        password: "123456789",
+      },
+      router
+    );
   };
 
   return (
@@ -103,6 +114,15 @@ export default function Login() {
               </button>
             </div>
           </form>
+          <div className="mt-6">
+            <button
+              type="button"
+              onClick={handleLoginInAsGuest}
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-slate-600 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500"
+            >
+              Sign in as Guest
+            </button>
+          </div>
 
           <div className="mt-6">
             <div className="relative">

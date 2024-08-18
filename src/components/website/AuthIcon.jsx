@@ -13,7 +13,7 @@ function AuthIcon({ token }) {
 
   return (
     <main>
-      {!token ? (
+      {!token?._id ? (
         <Link href={"/sign-in"}>
           <MdAccountCircle size={24} className="cursor-pointer  " />
         </Link>

@@ -15,14 +15,12 @@ export function useProducts() {
     removeFromCart,
     incrementQuantity,
     decrementQuantity,
-
+    loggedInuser,
     cartItems,
     setCartItems,
-
     wishListItems,
     addToWishlist,
     removeFromWishlist,
-
     products,
   } = context;
   return {
@@ -30,14 +28,12 @@ export function useProducts() {
     removeFromCart,
     incrementQuantity,
     decrementQuantity,
-
+    loggedInuser,
     cartItems,
     setCartItems,
-
     wishListItems,
     addToWishlist,
     removeFromWishlist,
-
     products,
   };
 }

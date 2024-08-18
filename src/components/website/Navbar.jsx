@@ -12,8 +12,7 @@ import AuthIcon from "./AuthIcon";
 import { useProducts } from "@/hooks/useProducts";
 
 function Navbar() {
-  const { products } = useProducts();
-  const token = true;
+  const { products, loggedInuser } = useProducts();
 
   return (
     <main className=" w-full px-4 py-4 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-30">
@@ -35,7 +34,7 @@ function Navbar() {
         </Link>
         <Cart />
         <Wishlist />
-        <AuthIcon token={token} />
+        <AuthIcon token={loggedInuser} />
       </div>
     </main>
   );
