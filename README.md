@@ -4,6 +4,21 @@
 
 This is a full-stack e-commerce platform built with Next.js. It offers a comprehensive shopping experience with features like product browsing, cart management, wishlist functionality, and secure checkout with payment integration.
 
+## Demo Video
+
+[Watch the demo video here if you face no-sound issue below 👈](https://www.loom.com/share/5ef0bb21319f4bdbbc315015d23ab933?sid=d073e628-b6ce-4bfc-ad2a-03d3e9c6fc5f)
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+  <iframe 
+    src="https://www.loom.com/embed/5ef0bb21319f4bdbbc315015d23ab933?sid=797c3e46-9953-4838-b96f-e4e4b8bb2d23" 
+    frameborder="0" 
+    webkitallowfullscreen 
+    mozallowfullscreen 
+    allowfullscreen 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+  </iframe>
+</div>
+
 ## Features
 
 - Product catalog browsing
