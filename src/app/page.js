@@ -6,7 +6,7 @@ import { useProducts } from "@/hooks/useProducts";
 
 export default function Home() {
   const { products } = useProducts();
-  const randomProducts = products.sort(() => 0.5 - Math.random()).slice(0, 5);
+  const randomProducts = products?.sort(() => 0.5 - Math.random()).slice(0, 5);
 
   return (
     <main className="flex min-h-screen flex-col w-full pt-20 px-4 bg-slate-100">
