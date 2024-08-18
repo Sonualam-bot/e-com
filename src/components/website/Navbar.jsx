@@ -1,19 +1,19 @@
+"use client";
+
 //assets
 
 import Cart from "./Cart";
 import Wishlist from "./Wishlist";
 import Link from "next/link";
-import getProducts from "@/utils/api";
+
 import Search from "./Search";
 
-import { cookies } from "next/headers";
 import AuthIcon from "./AuthIcon";
+import { useProducts } from "@/hooks/useProducts";
 
-async function Navbar() {
-  const products = await getProducts();
-
-  const cookieStore = cookies();
-  const token = cookieStore.get("accessToken");
+function Navbar() {
+  const { products } = useProducts();
+  const token = true;
 
   return (
     <main className=" w-full px-4 py-4 bg-slate-600 text-white  flex items-center justify-between shadow-lg fixed z-30">
@@ -28,7 +28,7 @@ async function Navbar() {
 
       <div className="  flex items-center gap-4 ">
         <Link
-          href={"/product"}
+          href={"/products"}
           className="text-white hover:text-gray-300 transition-colors duration-200 font-semibold text-[14px] md:text-[18px]  px-2 py-1 md:px-3 md:py-2 rounded-md bg-slate-700 hover:bg-slate-800"
         >
           See All Products

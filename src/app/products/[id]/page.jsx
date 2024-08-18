@@ -80,7 +80,7 @@ export async function generateStaticParams() {
   const res = await fetch("https://fakestoreapi.in/api/products");
   const data = await res.json();
 
-  return data?.products.map((product) => ({
+  return data?.products?.map((product) => ({
     id: product.id.toString(),
   }));
 }

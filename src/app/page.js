@@ -1,10 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import getProducts from "@/utils/api";
+import { useProducts } from "@/hooks/useProducts";
 
-export default async function Home() {
-  const products = await getProducts();
-
+export default function Home() {
+  const { products } = useProducts();
   const randomProducts = products.sort(() => 0.5 - Math.random()).slice(0, 5);
 
   return (
@@ -12,9 +13,9 @@ export default async function Home() {
       <h1 className="text-4xl font-bold mb-8"></h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] mb-12">
-        {randomProducts.map((product, index) => (
+        {randomProducts?.map((product, index) => (
           <Link
-            href={`/product/${product.id}`}
+            href={`/products/${product.id}`}
             key={product.id}
             className={`relative overflow-hidden rounded-lg shadow-lg group 
                             ${index === 0 ? "col-span-2 row-span-2" : ""} 
@@ -39,7 +40,7 @@ export default async function Home() {
 
       <div className="flex justify-center mt-8 mb-12">
         <Link
-          href="/product"
+          href="/products"
           className="
             relative 
             inline-flex 

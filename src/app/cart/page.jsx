@@ -7,8 +7,13 @@ import CartSummary from "@/components/website/CartSummary";
 import CartTable from "@/components/website/CartTable";
 
 function UserCart() {
-  const { cartItems, updateItemQuantity, removeItemFromCart, setCartItems } =
-    useProducts();
+  const {
+    cartItems,
+    incrementQuantity,
+    decrementQuantity,
+    setCartItems,
+    removeFromCart,
+  } = useProducts();
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [appliedDiscount, setAppliedDiscount] = useState(null);
   const [couponInput, setCouponInput] = useState("");
@@ -32,11 +37,18 @@ function UserCart() {
   const discountAmount = calculateDiscount();
   const total = subtotal - discountAmount;
 
-  const handleQuantityChange = (item, change) => {
-    const newQuantity = item.quantity + change;
-    if (newQuantity >= 1) {
-      updateItemQuantity(item.id, newQuantity);
-    }
+  const handleQuantityIncrement = (product) => {
+    incrementQuantity(product);
+    toast.success("Cart updated ");
+  };
+  const handleQuantityDecrement = (product) => {
+    decrementQuantity(product);
+    toast.success("Cart updated ");
+  };
+
+  const removeItemFromCart = (product) => {
+    removeFromCart(product);
+    toast.success("Cart Updated");
   };
 
   const handleCouponSelection = (coupon) => {
@@ -121,7 +133,8 @@ function UserCart() {
                   <CartTable
                     key={index}
                     item={item}
-                    handleQuantityChange={handleQuantityChange}
+                    handleQuantityIncrement={handleQuantityIncrement}
+                    handleQuantityDecrement={handleQuantityDecrement}
                     removeItemFromCart={removeItemFromCart}
                   />
                 ))}
