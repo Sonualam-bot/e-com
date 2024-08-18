@@ -15,7 +15,7 @@ export default function Home() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[200px] mb-12">
         {randomProducts?.map((product, index) => (
           <Link
-            href={`/products/${product.id}`}
+            href={`/products/${product._id}`}
             key={product.id}
             className={`relative overflow-hidden rounded-lg shadow-lg group 
                             ${index === 0 ? "col-span-2 row-span-2" : ""} 

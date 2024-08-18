@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { dbConnect } from "@/lib/mongo";
 import { User } from "@/model/user-model";
 import { NextResponse } from "next/server";

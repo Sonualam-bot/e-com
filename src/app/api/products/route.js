@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Product } from "@/model/product-model";
 import { NextResponse } from "next/server";
 

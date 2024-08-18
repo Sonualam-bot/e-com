@@ -85,7 +85,6 @@ function UserCart() {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setCartItems([]);
   };
 
   if (showModal) {
