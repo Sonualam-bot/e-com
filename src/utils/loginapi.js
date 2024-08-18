@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 
-export default async function userLogin(formData, router) {
+export default async function userLogin(formData) {
   try {
     const response = await fetch(`/api/sign-in`, {
       method: "POST",
@@ -11,6 +11,7 @@ export default async function userLogin(formData, router) {
     });
 
     const data = await response.json();
+    console.log(data);
 
     if (!response.ok) {
       throw new Error(data.error || "An error occurred during login");

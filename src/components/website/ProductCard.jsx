@@ -32,7 +32,7 @@ function ProductCard({ product }) {
         )}
       </div>
       <div className="p-4 pb-0 flex flex-col justify-between ">
-        <ProductTitle id={product?.id} title={product?.title} />
+        <ProductTitle id={product?._id} title={product?.title} />
         <div className="flex justify-between items-center mb-4">
           <div>
             <span className="text-xl font-bold text-blue-600">

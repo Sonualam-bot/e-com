@@ -11,23 +11,33 @@ export function useProducts() {
   }
 
   const {
-    addItemToCart,
+    addToCart,
+    removeFromCart,
+    incrementQuantity,
+    decrementQuantity,
+
     cartItems,
     setCartItems,
-    removeItemFromCart,
+
     wishListItems,
-    addToWishList,
-    removeFromWishList,
-    updateItemQuantity,
+    addToWishlist,
+    removeFromWishlist,
+
+    products,
   } = context;
   return {
-    addItemToCart,
+    addToCart,
+    removeFromCart,
+    incrementQuantity,
+    decrementQuantity,
+
     cartItems,
     setCartItems,
-    removeItemFromCart,
+
     wishListItems,
-    addToWishList,
-    removeFromWishList,
-    updateItemQuantity,
+    addToWishlist,
+    removeFromWishlist,
+
+    products,
   };
 }

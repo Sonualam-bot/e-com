@@ -6,16 +6,16 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 function AddToWishListButton({ product }) {
-  const { addToWishList, removeFromWishList, wishListItems } = useProducts();
+  const { addToWishlist, removeFromWishlist, wishListItems } = useProducts();
 
-  const isInWishList = wishListItems.some((item) => item.id === product.id);
+  const isInWishList = wishListItems?.some((item) => item.id === product?.id);
 
   const handleClick = () => {
     if (isInWishList) {
-      removeFromWishList(product.id);
+      removeFromWishlist(product);
       toast.success("Removed from Wishlist");
     } else {
-      addToWishList(product);
+      addToWishlist(product);
       toast.success("Added to Wishlist");
     }
   };

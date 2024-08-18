@@ -7,8 +7,9 @@ import SortByDiscount from "./SortByDiscount";
 import SortByCategory from "./SortByCategory";
 import SortByBrand from "./SortByBrand";
 import SortByPrice from "./SortByPrice";
+import { useProducts } from "@/hooks/useProducts";
 
-function ProductSection({ products }) {
+function ProductSection() {
   const [sortCriteria, setSortCriteria] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [sortedProducts, setSortedProducts] = useState([]);
@@ -16,22 +17,24 @@ function ProductSection({ products }) {
   const [selectedBrand, setSelectedBrand] = useState("");
   const [noProductsMessage, setNoProductsMessage] = useState("");
 
+  const { products } = useProducts();
+
   useEffect(() => {
     let filteredArray = [...products];
 
     if (selectedCategory) {
-      filteredArray = filteredArray.filter(
+      filteredArray = filteredArray?.filter(
         (product) => product.category === selectedCategory
       );
     }
 
     if (selectedBrand) {
-      filteredArray = filteredArray.filter(
+      filteredArray = filteredArray?.filter(
         (product) => product.brand === selectedBrand
       );
     }
 
-    if (filteredArray.length === 0) {
+    if (filteredArray?.length === 0) {
       if (selectedCategory && selectedBrand) {
         setNoProductsMessage(
           `No products found in the category "${selectedCategory}" for the brand "${selectedBrand}".`
@@ -53,14 +56,14 @@ function ProductSection({ products }) {
 
     switch (sortCriteria) {
       case "price":
-        filteredArray.sort((a, b) =>
+        filteredArray?.sort((a, b) =>
           sortOrder === "asc"
             ? (a.price || 0) - (b.price || 0)
             : (b.price || 0) - (a.price || 0)
         );
         break;
       case "discount":
-        filteredArray.sort((a, b) =>
+        filteredArray?.sort((a, b) =>
           sortOrder === "asc"
             ? (a.discount || 0) - (b.discount || 0)
             : (b.discount || 0) - (a.discount || 0)
@@ -85,9 +88,9 @@ function ProductSection({ products }) {
   };
 
   const categoryList = [
-    ...new Set(products.map((product) => product.category)),
+    ...new Set(products?.map((product) => product.category)),
   ];
-  const brandList = [...new Set(products.map((product) => product.brand))];
+  const brandList = [...new Set(products?.map((product) => product.brand))];
 
   return (
     <main>

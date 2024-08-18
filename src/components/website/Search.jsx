@@ -41,7 +41,7 @@ function Search({ products }) {
   };
 
   const handleProductClick = (productId) => {
-    router.push(`/product/${productId}`);
+    router.push(`/products/${productId}`);
     setSearchTerm("");
     setShowResults(false);
   };

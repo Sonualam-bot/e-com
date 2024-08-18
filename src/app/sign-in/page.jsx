@@ -6,8 +6,8 @@ import Link from "next/link";
 
 import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOffSharp } from "react-icons/io5";
-import toast from "react-hot-toast";
 import userLogin from "@/utils/loginapi";
+import { useProducts } from "@/hooks/useProducts";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -28,7 +28,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    userLogin(formData, router);
+    await userLogin(formData, router);
   };
 
   return (

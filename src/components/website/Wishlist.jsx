@@ -9,9 +9,9 @@ function Wishlist() {
   return (
     <Link href={"/wishlist"} className="relative">
       <FaHeart size={24} className="cursor-pointer  " />
-      {wishListItems.length > 0 && (
+      {wishListItems?.length > 0 && (
         <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
-          {wishListItems.length}
+          {wishListItems?.length}
         </span>
       )}
     </Link>

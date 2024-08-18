@@ -6,7 +6,7 @@ import Link from "next/link";
 function ProductTitle({ title, id }) {
   return (
     <Link
-      href={`product/${id}`}
+      href={`products/${id}`}
       className="text-lg font-semibold mb-2 h-14 overflow-hidden hover:underline cursor-pointer "
     >
       {truncateText(title, 50)}

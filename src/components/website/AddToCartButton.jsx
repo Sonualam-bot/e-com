@@ -6,16 +6,16 @@ import toast from "react-hot-toast";
 import { MdAddShoppingCart, MdRemoveShoppingCart } from "react-icons/md";
 
 function AddToCartButton({ product, singleProduct }) {
-  const { addItemToCart, cartItems, removeItemFromCart } = useProducts();
+  const { cartItems, addToCart, removeFromCart } = useProducts();
 
-  const isInCart = cartItems.some((item) => item.id === product.id);
+  const isInCart = cartItems?.some((item) => item.id === product?.id);
 
   const handleClick = () => {
     if (isInCart) {
-      removeItemFromCart(product.id);
+      removeFromCart(product);
       toast.success("Removed from Cart");
     } else {
-      addItemToCart(product);
+      addToCart(product);
       toast.success("Added to Cart");
     }
   };

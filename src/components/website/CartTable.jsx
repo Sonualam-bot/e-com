@@ -3,7 +3,12 @@ import { formatPrice, truncateText } from "@/utils/helpers";
 import { MdDelete } from "react-icons/md";
 import Image from "next/image";
 
-function CartTable({ item, handleQuantityChange, removeItemFromCart }) {
+function CartTable({
+  item,
+  handleQuantityIncrement,
+  handleQuantityDecrement,
+  removeItemFromCart,
+}) {
   return (
     <div key={item.id} className="border-b p-4 flex flex-col md:flex-row">
       <div className="md:grid md:grid-cols-6 flex flex-col flex-wrap gap-4 w-full">
@@ -32,7 +37,7 @@ function CartTable({ item, handleQuantityChange, removeItemFromCart }) {
           <span className="md:hidden font-semibold">Quantity:</span>
           <div className="flex items-center justify-between w-24 md:w-28 ml-auto ">
             <button
-              onClick={() => handleQuantityChange(item, -1)}
+              onClick={() => handleQuantityDecrement(item)}
               className="bg-gray-200 px-2 py-1 rounded-l text-sm"
               disabled={item.quantity === 1}
             >
@@ -42,7 +47,7 @@ function CartTable({ item, handleQuantityChange, removeItemFromCart }) {
               {item.quantity}
             </span>
             <button
-              onClick={() => handleQuantityChange(item, 1)}
+              onClick={() => handleQuantityIncrement(item)}
               className="bg-gray-200 px-2 py-1 rounded-r text-sm"
             >
               +
@@ -58,7 +63,7 @@ function CartTable({ item, handleQuantityChange, removeItemFromCart }) {
         <div className="hidden md:flex items-center justify-center">
           <MdDelete
             size={24}
-            onClick={() => removeItemFromCart(item.id)}
+            onClick={() => removeItemFromCart(item)}
             className="text-red-500 hover:text-red-700 cursor-pointer"
           />
         </div>
@@ -66,7 +71,7 @@ function CartTable({ item, handleQuantityChange, removeItemFromCart }) {
       <div className="mt-4 md:hidden flex justify-end">
         <MdDelete
           size={24}
-          onClick={() => removeItemFromCart(item.id)}
+          onClick={() => removeItemFromCart(item)}
           className="text-red-500 hover:text-red-700 cursor-pointer"
         />
       </div>
