@@ -70,7 +70,7 @@ function Search({ products }) {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              onClick={() => handleProductClick(product.id)}
+              onClick={() => handleProductClick(product._id)}
               className="p-4 hover:bg-gray-100 cursor-pointer transition duration-150 ease-in-out border-b border-gray-200 last:border-b-0"
             >
               <h3 className="font-semibold text-gray-900">{product.title}</h3>
